@@ -2,27 +2,26 @@ package Assignment
 
 object Q3 extends App
 {
-   val x=new Account(4567432,12000);
-   val y=new Account(3217864,9000);
-   x.Transfer(y,1500);
-   class Account(a:Int,b:Int){
-    val acnum:Int=a;
-    var amount:Int=b;
+   val x=new Account("972381870v",4567432,"Sandaruwan",12000);
+   val y=new Account("993421675v",3217864,"Gamage",9000);
+   println("Account Details : "+x+"\t"+y)
+   x.transfer(y,1000);
+   println("Updated Account Details : "+x+"\t"+y)
+   class Account(a:String,b:Int,c:String,d:Double)
+   {
+    val nic=a
+    val acnum:Int=b;
+    val name=c;
+    var balance:Double=d;
     
-    def NewValues( a:Account,sender:Int,receiver:Int) {
-      new Account(this.acnum,sender);
-      new Account(a.acnum,receiver);
-      println("Account No: "+this.acnum,"Amount: "+this.amount);
-      println("Account No: "+a.acnum,"Ammount: "+a.amount);
+    def withdraw(a:Double) = (this.balance = this.balance-a)
+    def deposit(a:Double) = (this.balance = this.balance+a)
+    def transfer(a:Account,b:Double) = 
+    {
+      this.withdraw(b) 
+      a.deposit(b)
     }
-    
-    
-    def Transfer(a:Account,value:Int) {
-      this.amount=this.amount-value;
-      a.amount=a.amount+value;
-      NewValues(a,this.amount,a.amount);
-    }
-    
-  }
+    override def toString = "[" + nic + "," + acnum + "," + name + "," + balance + "]"
+   }
 }
 
