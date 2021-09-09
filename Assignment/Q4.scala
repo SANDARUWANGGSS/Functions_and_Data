@@ -1,6 +1,6 @@
-package Assignment
+package Assignment 
 
-object Q4 
+object Q4 extends App
 {
  var bank:List[Account]=List(new Account("Sandaruwan",1201,24760.90),new Account("Gamage",1202,68500.50),new Account("Wikum",1203,-8500.50))
     def isoverDraft=(x:Account)=>x.balance<0
